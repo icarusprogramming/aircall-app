@@ -73,12 +73,12 @@ function App() {
 
           )) }</List> */}
 
-          <Paper sx={{ position: 'absolute', bottom: 0, left: 0, right: 0 }} elevation={3}>
+          {/* <Paper sx={{ position: 'absolute', bottom: 0, left: 0, right: 0 }} elevation={3}>
             <BottomNavigation showLabels divider>
               <BottomNavigationAction onClick={() => navigate("/log")} label="Activity Log" icon={<PhoneIcon />} />
               <BottomNavigationAction onClick={() => navigate("/details")} label="Archived calls" icon={<FolderIcon />} />
             </BottomNavigation>
-          </Paper>
+          </Paper> */}
       
 
 

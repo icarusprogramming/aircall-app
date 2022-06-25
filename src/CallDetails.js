@@ -5,14 +5,15 @@ import { useEffect, useState } from "react";
 const CallDetails = () => {
     const params = useParams();
 
-    const [calls, setCalls] = useState([]);
+    const [call, setCall] = useState();
+    
 
     const getData = async () => {
         console.log("fetching data");
 
         const response = await fetch("https://aircall-job.herokuapp.com/activities/" + params.callID);
         const data = await response.json();
-        setCalls(data);
+        setCall(data);
         console.log(data);
     }
 
@@ -21,9 +22,19 @@ const CallDetails = () => {
     }, []);
 
     return ( 
+        call && (
         <div>
-            {params.callID}
-        </div>
+            <div className="text-base text-center pt-16 text-gray-600 capitalize">
+                <p className="">{ `${call.direction} call from:`}</p>
+                <p className="text-black text-xl py-4"> {`${call.from}`} </p>
+                <p className="py-1"> {call.to ? `To:` : ""} </p>
+                <p className="text-black text-xl py-4"> {call.to ? call.to : ""} </p>
+                <p className=""> {"was " + (call.call_type == "voicemail" ? "sent to voicemail" : call.call_type) + " at:"} </p>
+                <p className="pt-2"> {`${call.created_at}`} </p>
+            </div>
+
+         
+        </div>)
      );
 }
  
