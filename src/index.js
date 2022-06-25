@@ -16,7 +16,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} >
-          <Route index path="log" element={<Log />} />
+          <Route index path="" element={<Log />} />
           <Route path="details" element={<Details />} >
             <Route path=":callID" element={<CallDetails />} />
           </Route>

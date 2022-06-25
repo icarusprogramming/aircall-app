@@ -3,18 +3,16 @@ import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react";
 
 const CallDetails = () => {
-    const params = useParams();
-
-    const [call, setCall] = useState();
     
+    const params = useParams();
+    const [call, setCall] = useState();
 
     const getData = async () => {
-        console.log("fetching data");
 
+        //fetch call details
         const response = await fetch("https://aircall-job.herokuapp.com/activities/" + params.callID);
         const data = await response.json();
         setCall(data);
-        console.log(data);
     }
 
     useEffect(() => {
@@ -22,6 +20,7 @@ const CallDetails = () => {
     }, []);
 
     return ( 
+        //page doesn't try to render until call details are fetched
         call && (
         <div>
             <div className="text-base text-center pt-16 text-gray-600 capitalize">
