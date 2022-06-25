@@ -5,20 +5,6 @@ import { useState, useEffect } from "react"
 
 import { Reorder } from "framer-motion"
 
-import IconButton from '@mui/material/IconButton';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import ImageIcon from '@mui/icons-material/Person';
-import ArchiveIcon from '@mui/icons-material/Archive';
-import { BottomNavigation, BottomNavigationAction, Paper } from '@mui/material'; 
-import PhoneMissedIcon from '@mui/icons-material/PhoneMissed';
-import VoicemailIcon from '@mui/icons-material/Voicemail';
-import AnsweredIcon from '@mui/icons-material/PhoneCallback';
-import PhoneIcon from '@mui/icons-material/Phone';
-import FolderIcon from '@mui/icons-material/Folder';
 
 const Log = () => {
 
@@ -30,7 +16,6 @@ const Log = () => {
         const response = await fetch("https://aircall-job.herokuapp.com/activities");
         const data = await response.json();
         setCalls(data);
-        console.log(data);
     }
 
     useEffect(() => {
@@ -38,10 +23,8 @@ const Log = () => {
     }, []);
 
     const parseDate = (inputDate) => {
+        
         const somedate = new Date(Date.parse(inputDate));
-        console.log(somedate.getHours());
-        somedate.getHours();
-
         return somedate.toLocaleString();
     }
 

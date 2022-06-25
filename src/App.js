@@ -10,14 +10,14 @@ import Header from "./Header"
 function App() {
 
   return (
-    <div className="container" style={{position: "relative"}}>
+    <div className="container font-poppins" style={{position: "relative"}}>
         
         {/* display the aircall logo */}
         <Header/>
 
         {/* display the nested content */}
         <Outlet />
-        
+
     </div>
   );
 }
